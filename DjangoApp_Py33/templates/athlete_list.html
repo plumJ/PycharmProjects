@@ -1,0 +1,14 @@
+{% for athlete in athlete_list %}
+{# for athlete in athlete_list reversed #}
+    <h1>{{ athlete.name | upper }}</h1>
+    <ul>
+        {% for sport in athlete.sports_played %}
+            {% if not forloop.last %}{{ sport }}, {% endif %}
+            {% if forloop.last %}{{ sport }}{% endif %}
+        {% empty %}
+            <p>{{ sport }}</p>
+        {% endfor %}
+    </ul>
+{% empty %}
+    <p>There are no athletes. Only computer programmers.</p>
+{% endfor %}
